@@ -1,8 +1,8 @@
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 clear
 
-sudo apt install bspwm sxhkd sddm feh kitty -y
+sudo apt install bspwm sxhkd sddm feh kitty rofi -y
 clear
 
 cp -r ./config/bspwm ~/.config/
