@@ -19,4 +19,4 @@ sudo cp -r ./sddm/game-rpg /usr/share/sddm/themes
 sudo cp ./sddm/sddm.conf /etc/
 clear
 
-#sudo reboot
+sudo reboot
