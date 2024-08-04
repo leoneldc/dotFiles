@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-#feh --bg-scale Descargas/1219185.jpg
+feh --bg-scale ~/dev-assets/lofi-1.jpeg
 
 kitty
 
