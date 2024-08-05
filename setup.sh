@@ -13,11 +13,12 @@ cp -r ./config/kitty ~/.config/
 cp -r ./dev-assets ~/
 clear
 
-sudo dpkg-reconfigure sddm
-clear
-
+#sddm 
 sudo cp -r ./sddm/game-rpg/ /usr/share/sddm/themes
 sudo cp ./sddm/sddm.conf /etc/
+clear
+
+sudo dpkg-reconfigure sddm
 clear
 
 #i3lock-color
@@ -41,5 +42,10 @@ cp betterlockscreen /usr/local/bin/
 cp system/betterlockscreen@.service /usr/lib/systemd/system/
 sudo systemctl enable betterlockscreen@$USER
 cd ..
+clear 
+
+sudo apt update
+sudo apt upgrade -y
+clear
 
 sudo reboot
