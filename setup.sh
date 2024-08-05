@@ -16,7 +16,7 @@ clear
 sudo dpkg-reconfigure sddm
 clear
 
-sudo cp -r ./sddm/game-rpg /usr/share/sddm/themes
+sudo cp -r ./sddm/game-rpg/ /usr/share/sddm/themes
 sudo cp ./sddm/sddm.conf /etc/
 clear
 
