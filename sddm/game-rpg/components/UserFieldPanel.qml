@@ -9,8 +9,8 @@ TextField {
     width: inputWidth
     selectByMouse: true
     echoMode: TextInput.Normal
-    selectionColor: config.TextFieldTextColor
-
+    selectionColor: config.TextFieldSelection
+    
     renderType: Text.NativeRendering
     font.family: config.Font
     font.pointSize: config.GeneralFontSize
@@ -36,7 +36,7 @@ TextField {
             when: usernameField.activeFocus
             PropertyChanges {
                 target: userFieldBackground
-                color: Qt.darker(config.TextFieldColor, 1.2)
+                color: Qt.lighter(config.TextFieldColor, 1.2)
                 border.width: config.TextFieldHighlightWidth
             }
         },
@@ -45,7 +45,7 @@ TextField {
             when: usernameField.hovered
             PropertyChanges {
                 target: userFieldBackground
-                color: Qt.darker(config.TextFieldColor, 1.2)
+                color: Qt.lighter(config.TextFieldColor, 1.2)
             }
         }
     ]

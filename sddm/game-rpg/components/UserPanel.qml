@@ -126,9 +126,9 @@ Column {
             id: pictureBorder
 
             anchors.centerIn: userPicture
-            height: inputWidth / 2 + (border.width * 2)
-            width: inputWidth / 2 + (border.width * 2)
-            radius: height / 2
+            height: inputWidth / 1.7 + (border.width * 2)
+            width: inputWidth / 1.7 + (border.width * 2)
+            radius: height / 1.5
             border.width: config.UserPictureBorderWidth
             border.color: config.UserPictureBorderColor
             color: config.UserPictureColor
@@ -197,12 +197,13 @@ Column {
             id: userPicture
             source: ""
 
-            height: inputWidth / 2
-            width: inputWidth / 2
+            height: inputWidth / 1.75
+            width: inputWidth / 1.75
+	    
             anchors.horizontalCenter: parent.horizontalCenter
 
             fillMode: Image.PreserveAspectCrop
-            layer.enabled: false
+            layer.enabled: true
             layer.effect: OpacityMask {
                 maskSource: mask
             }
@@ -211,7 +212,9 @@ Column {
                 id: mask
 
                 anchors.fill: parent
-                radius: inputWidth / 3
+                width: userPicture.width
+                height: userPicture.height
+		radius: inputWidth / 2
                 visible: false
             }
         }

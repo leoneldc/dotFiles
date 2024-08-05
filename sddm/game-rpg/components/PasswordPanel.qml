@@ -10,7 +10,7 @@ TextField {
     echoMode: TextInput.Password
     passwordCharacter: "•"
     passwordMaskDelay: 1000
-    selectionColor: config.TextFieldTextColor
+    selectionColor: config.TextFieldSelection
     
     renderType: Text.NativeRendering
     font.family: config.Font
@@ -34,7 +34,7 @@ TextField {
             when: passwordField.activeFocus
             PropertyChanges {
                 target: passFieldBg
-                color: Qt.darker(config.TextFieldColor, 1.2)
+                color: Qt.lighter(config.TextFieldColor, 1.2)
                 border.width: config.TextFieldHighlightWidth
             }
         },
@@ -43,7 +43,7 @@ TextField {
             when: passwordField.hovered
             PropertyChanges {
                 target: passFieldBg
-                color: Qt.darker(config.TextFieldColor, 1.2)
+                color: Qt.lighter(config.TextFieldColor, 1.2)
             }
         }
     ]
