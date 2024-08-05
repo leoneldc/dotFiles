@@ -2,14 +2,12 @@ sudo apt update
 sudo apt upgrade -y
 clear
 
-sudo apt install bspwm sxhkd feh kitty rofi -ysudo apt-get install pkg-config libxcb1 libpam-dev libcairo-dev libxcb-composite0 libxcb-composite0-dev libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev
+sudo apt install bspwm sxhkd feh kitty picom rofi -ysudo apt-get install pkg-config libxcb1 libpam-dev libcairo-dev libxcb-composite0 libxcb-composite0-dev libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev
 
-sudo apt install --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5
+sudo apt install --no-install-recommends sddm qmll-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5
 clear
 
-cp -r ./config/bspwm ~/.config/
-cp -r ./config/sxhkd ~/.config/
-cp -r ./config/kitty ~/.config/
+cp -r ./config/ ~/.config/
 cp -r ./dev-assets ~/
 clear
 
