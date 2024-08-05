@@ -36,8 +36,8 @@ F4
 	bspc node -k
 
 F9
-	betterlockscreen -l dimblur
-		
+	betterlockscreen -l dimblur --text "W 4 E" -- -e		
+
 # CAMBIAR LAYOUT DE VENTANAS
 super + m
 	bspc desktop -l next
