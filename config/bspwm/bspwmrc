@@ -5,7 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 pkill picom
 picom -f --daemon --config "${HOME}/.config/picom/picom.conf" &
 
-feh --bg-scale ~/dev-assets/lofi-1.jpeg
+feh --bg-scale ~/dev-assets/bg/lofi-1.jpeg
 
 kitty
 

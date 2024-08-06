@@ -45,6 +45,7 @@ cp betterlockscreen /usr/local/bin/
 cp system/betterlockscreen@.service /usr/lib/systemd/system/
 sudo systemctl enable betterlockscreen@$USER
 cd ..
+betterlockscreen -u /usr/share/sddm/themes/backgrounds/bg2.jpeg
 clear 
 
 sudo apt update
