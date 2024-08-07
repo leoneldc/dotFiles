@@ -1,39 +1,60 @@
-sudo apt update
-sudo apt upgrade -y
+#!/bin/bash
+
+# Actualizar el sistema
+sudo apt update && sudo apt upgrade -y
+
+# Limpiar pantalla
 clear
 
-sudo apt install bspwm sxhkd feh kitty picom rofi curl -y
-sudo apt-get install cmake pkg-config libxcb1 libpam-dev libcairo-dev libxcb-composite0 libxcb-composite0-dev libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev
+# Instalar paquetes esenciales
+sudo apt install -y bspwm sxhkd feh kitty picom rofi curl cmake pkg-config \
+    libxcb1 libpam-dev libcairo-dev libxcb-composite0 libxcb-composite0-dev \
+    libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
+    libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev \
+    libxcb-xkb-dev libxkbcommon-x11-dev sddm qml-module-qtquick-layouts \
+    qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5 \
+    build-essential libgl1-mesa-dev dialog libxcb-xrm-dev xorg \
+    autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev \
+    libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev \
+    libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev \
+    libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev imagemagick unzip git 
 
-sudo apt install --no-install-recommends sddm qmll-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5
+# Limpiar pantalla
 clear
 
-sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+# Añadir repositorio para fastfetch
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch -y
 sudo apt update -y
-sudo apt install fastfetch
+sudo apt install -y fastfetch
 
+# Copiar configuraciones
 cp -r ./config/ ~/.config/
 cp -r ./dev-assets ~/
+
+# Hacer ejecutable el archivo bspwmrc
+chmod +x ~/.config/bspwm/bspwmrc
+
+# Limpiar pantalla
 clear
 
-#sddm 
+# Configurar SDDM
 sudo cp -r ./sddm/game-rpg/ /usr/share/sddm/themes
 sudo cp ./sddm/sddm.conf /etc/
 clear
-
 sudo dpkg-reconfigure sddm
+
+# Limpiar pantalla
 clear
 
-#i3lock-color
-sudo apt-get install pkg-config libxcb1 libpam-dev libcairo-dev libxcb-composite0 libxcb-composite0-dev libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev -y
+# Instalar i3lock-color
 git clone https://github.com/Raymo111/i3lock-color.git
 cd i3lock-color
-sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libxcb1-dev libxcb-image0-dev libxcb-randr0-dev libev-dev libx11-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 ./build.sh
+./install-i3lock-color.sh
 sudo make install
 cd ..
 
-#betterlockscreen
+# Instalar betterlockscreen
 wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system
 wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | bash -s user
 
@@ -41,15 +62,27 @@ wget https://github.com/betterlockscreen/betterlockscreen/archive/refs/heads/mai
 unzip main.zip
 cd betterlockscreen-main/
 chmod u+x betterlockscreen
-cp betterlockscreen /usr/local/bin/
-cp system/betterlockscreen@.service /usr/lib/systemd/system/
+sudo cp betterlockscreen /usr/local/bin/
+sudo cp system/betterlockscreen@.service /usr/lib/systemd/system/
 sudo systemctl enable betterlockscreen@$USER
 cd ..
 betterlockscreen -u /usr/share/sddm/themes/backgrounds/bg2.jpeg
-clear 
 
-sudo apt update
-sudo apt upgrade -y
+# Descargar e instalar FiraCode Nerd Font
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -O FiraCode.zip
+unzip FiraCode.zip -d FiraCode
+mkdir -p ~/.local/share/fonts
+cp FiraCode/*.ttf ~/.local/share/fonts/
+fc-cache -fv
+rm -rf FiraCode.zip FiraCode
+
+# Limpiar pantalla
 clear
 
+# Actualizar y limpiar el sistema
+sudo apt update && sudo apt upgrade -y
+sudo apt autoremove -y
+sudo apt clean
+
+# Reiniciar el sistema
 sudo reboot
